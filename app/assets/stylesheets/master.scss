@@ -1,5 +1,10 @@
 @import "bootstrap";
 
+body {
+  background: image_url('gravel.png');
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+
 h1, h2, h3, h4, h5, h6, .navbar {
   margin: 0;
 }
@@ -43,4 +48,10 @@ h1, h2, h3, h4, h5, h6, .navbar {
 .frosty {
   background: rgba(100, 100, 100, .5);
   border-radius: 30px;
+}
+
+.feature {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
