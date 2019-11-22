@@ -5,20 +5,17 @@
   <h1 class="text-center">Learn Today</h1>
   <hr />
 
-  <% @courses.each do |course| %>
-    <h2 class="text-center"><%= course.title %></h2>
-    <br />
-    <div class="butt">
-      <div align="center">
-        <%= course.description %>
-      </div>
+<% @courses.each do |course| %>
+  <h2 class="text-center"><%= course.title %></h2>
+  <br />
+  <div class="row">
+    <div class="col-sm-8 col-12">
+      <%= course.description %>
     </div>
     <br />
-    <div class="butt">
-      <div align="center">
-        <%= link_to 'Button', '#', class: 'btn btn-secondary btn-large' %>
-      </div>
-      <br />
+    <div class="col-sm-4 col-12 text-center">
+      <%= link_to 'Button', '#', class: 'btn btn-primary btn-large' %>
     </div>
-  <% end %>
-</div>
+  </div>
+<br class="clr" />
+<% end %> 
