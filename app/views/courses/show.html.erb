@@ -19,6 +19,13 @@
           <br />
           <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-secondary btn-xs' %>
         <% end %>
+          <% if current_user && current_user.enrolled_in?(@course) %>
+            <h3 class="badge badge-info">You Are Enrolled!</h3>
+          <% else %>
+          <br />
+          <br />
+            <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-secondary', method: :post %>
+          <% end %>
       </div>
       <br />
 
