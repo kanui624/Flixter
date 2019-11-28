@@ -81,4 +81,21 @@ h1, h2, h3, h4, h5, h6, .navbar {
   clear: both;
 }
 
+.lesson {
+  background-color: white;
+  border-color: white;
+  padding: 20px;
+  margin-top: 10px;
+  height: 130px;
+}
 
+.lesson a {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  font-size: 15px;
+}
+
+.lesson a b {
+  font-weight: 100;
+  font-size: 25px;
+}
