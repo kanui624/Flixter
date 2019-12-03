@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 body {
   background: image_url('gravel.png');
@@ -62,8 +63,6 @@ h1, h2, h3, h4, h5, h6, .navbar {
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
   background: black;
-  border: 1px solid #ccc;
-  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   margin-top: 10px;
   margin-bottom: 15px;
   color: white;
@@ -99,3 +98,27 @@ h1, h2, h3, h4, h5, h6, .navbar {
   font-weight: 100;
   font-size: 25px;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.section-li {
+  border: 1px solid;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 20px;
+}
+
+ul .header {
+  font-size: 25px;
+}
+
+ul .header .fa {
+  font-size: 20px;
+}
+
+.lessons li {
+  background: white;
+  color: black;
+}
+
