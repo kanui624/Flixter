@@ -38,51 +38,79 @@
       <%= image_tag @course.image.url, class: 'img-fluid' %>
     </div>
     <br />
-    <div class="text-center">
-      <%= link_to 'Add New Section', new_instructor_course_section_path(current_course), class: 'btn btn-secondary btn-xs' %>
-    </div>
 
-    <br class="clr" />
+  <div class="text-center">  
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#newSectionModal">
+      Add a new section
+    </button>
+  </div>
+
+  <br class="clr" />
       <div align="center">
         <%= link_to 'Preview As Student', course_path(current_course), class: 'btn btn-secondary' %>
       </div>
       <br />
       <br />
 
-    <ul class="sections">
-      <% current_course.sections.rank(:row_order).each do |section| %>
-        <li data-update-url="<%= instructor_section_path(section) %>" class="section-li">
 
-            <div class="header">
-              <span class="fa fa-ellipsis-v"></span>
-                <%= section.title %>
-            </div>
+  <ul class="sections">
+    <% current_course.sections.rank(:row_order).each do |section| %>
+      <li data-update-url="<%= instructor_section_path(section) %>" class="section-li">
 
-            <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'float-right btn btn-secondary btn-sm' %>
-              <br class="clr" />
-              <br class="clr" />
-            <ul class="lessons">
-              <% section.lessons.rank(:row_order).each do |lesson| %>
-                <li data-update-url="<%= instructor_lesson_path(lesson) %>">
-                    <div class="row">
-                      <div class="col-1">
-                        <br />
-                        <span class="fa fa-ellipsis-v"></span>   
-                      </div>
-                      <div class="col-11 text-center">           
-                            <b><%= lesson.title %></b>
-                          <p>
-                            <%= lesson.subtitle %>
-                          </p>
-                      </div>
+          <div class="header float-left">
+            <span class="fa fa-ellipsis-v"></span>
+              <%= section.title %>
+          </div>
+
+          <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'float-right btn btn-secondary btn-sm' %>
+            <br class="clr" />
+            <br class="clr" />
+          <ul class="lessons">
+            <% section.lessons.rank(:row_order).each do |lesson| %>
+              <li data-update-url="<%= instructor_lesson_path(lesson) %>">
+                  <div class="row">
+                    <div class="col-1">
+                      <br />
+                      <span class="fa fa-ellipsis-v"></span>   
                     </div>
-                  <br class="clr" />
-                </li>
-              <% end %>
-            </ul>
-          <br class="clr" />
-        </li>
-      <% end %>
-    </ul>
+                    <div class="col-11 text-center">           
+                      <b><%= lesson.title %></b>
+                      <p>
+                      <%= lesson.subtitle %>
+                      </p>
+                    </div>
+                  </div>
+                <br class="clr" />
+              </li>
+            <% end %>
+          </ul>
+        <br class="clr" />
+      </li>
+    <% end %>
+  </ul>
   <br />
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="newSectionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="newSectionModal">Add a New Section</h5>
+      </div>
+        <div class="modal-body">
+          <%= simple_form_for @section, url: instructor_course_sections_path(current_course) do |f| %>
+            <%= f.input :title %>
+        </div>  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add a section", class: 'btn btn-secondary' %>
+        </div>
+      <% end %> 
+    </div>
+  </div>
 </div>
