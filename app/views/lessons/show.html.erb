@@ -1,7 +1,6 @@
 <br />
 
 <div class="booyah-box col-10 offset-1" align="center">
-  <h1>Lesson Show Page</h1>
   <h2><%= current_lesson.title %></h2>
   <p class="float-left">
     <%= current_lesson.subtitle %>
@@ -16,7 +15,7 @@
 
   <br class="clr" />
   <br />
-  
+
   <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="auto" height="auto"
   poster="<%= image_path('black.jpg') %>" data-setup="{}">
     <source src="<%= current_lesson.video.to_s %>" type='video/mp4'>
